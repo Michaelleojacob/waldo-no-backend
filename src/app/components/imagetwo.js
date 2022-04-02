@@ -1,7 +1,7 @@
 const ImageTwo = () => {
   return (
     <div>
-      <div>hi</div>
+      <div>image two</div>
     </div>
   );
 };
