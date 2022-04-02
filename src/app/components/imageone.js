@@ -1,7 +1,14 @@
 const ImageOne = () => {
   return (
     <div>
-      <div>image one</div>
+      <img
+        className="game-image"
+        src={
+          process.env.PUBLIC_URL +
+          "/assets/images/egor-klyuchnyk-full-x-season-web.jpg"
+        }
+        alt={"game version one"}
+      ></img>
     </div>
   );
 };
