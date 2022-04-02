@@ -1,15 +1,8 @@
-import {render} from 'react-dom';
-import App from './app/app';
-import './index.css';
+import { createRoot } from "react-dom/client";
+import App from "./app/app";
+import "./index.css";
 
-const Script = () => {
-    return (
-        <div>
-            <div>
-                <App />
-            </div>
-        </div>
-    )
-}
+const Script = () => <App />;
 
-render(<Script />, document.getElementById('root'))
+const root = createRoot(document.getElementById("root"));
+root.render(<Script />);
