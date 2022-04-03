@@ -5,7 +5,6 @@ const ImageOne = () => {
   const [clickActive, setClickActive] = useState(false);
   const [clickCoords, setClickCoords] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
-  const [mousePosition, setMousePosition] = useState({});
 
   const handleClick = (e) => {
     // console.log(e);
@@ -16,8 +15,6 @@ const ImageOne = () => {
     const y = e.clientY - rect.top;
     setClickCoords({ left: x, top: y });
     setClickActive(true);
-    const { clientX, clientY } = e;
-    setMousePosition({ clientX, clientY });
   };
 
   const forceClickInactive = () => setClickActive(false);
@@ -29,7 +26,6 @@ const ImageOne = () => {
           imageDimensions={imageDimensions}
           clickCoords={clickCoords}
           forceClickInactive={forceClickInactive}
-          mousePosition={mousePosition}
         />
       ) : null}
       <img
