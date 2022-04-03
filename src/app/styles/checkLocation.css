@@ -1,0 +1,21 @@
+#menu-modal-container{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+#menu-modal-circle{
+    position: absolute;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+#menu-modal-selection{
+    position: absolute;
+    border: 1px solid black;
+    background-color: blue;
+}

@@ -8,6 +8,7 @@ const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
   const [pickedGame1, setPickedGame1] = useState(false);
   const [pickedGame2, setPickedGame2] = useState(false);
+  // const [isSelectionModalActive, setIsSelectionModalActive] = useState(false);
 
   const startGameOne = () => {
     setIsGameLive(true);
