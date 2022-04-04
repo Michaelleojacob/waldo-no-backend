@@ -14,18 +14,34 @@ const CheckLocation = (props) => {
     }
   };
 
-  const handleCheckCharOneLocation = () => {
-    const { noface } = characterObject();
+  const checkWidth = (targetWidth) => {
     const widthRatio = naturalWidth / clientWidth;
     const xCoordToCheck = left * widthRatio;
-    const low = noface[0] - 50;
-    const high = noface[0] + 50;
-
-    console.log(`low:${low} high:${high} xcoord:${xCoordToCheck}`);
-
+    const low = targetWidth - 50;
+    const high = targetWidth + 50;
+    // console.log(`low:${low} high:${high} xcoord:${xCoordToCheck}`);
     if (xCoordToCheck >= low && xCoordToCheck <= high) {
-      console.log(true);
+      return true;
     }
+    return false;
+  };
+  const checkHeight = (targetHeight) => {
+    const heightRatio = naturalHeight / clientHeight;
+    const yCoordToCheck = top * heightRatio;
+    const low = targetHeight - 50;
+    const high = targetHeight + 50;
+    // console.log(`low:${low} high:${high} xcoord:${yCoordToCheck}`);
+    if (yCoordToCheck >= low && yCoordToCheck <= high) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleCheckCharOneLocation = () => {
+    const { noface } = characterObject();
+    const resultWidth = checkWidth(noface[0]);
+    const resultHeight = checkHeight(noface[1]);
+    console.log(resultWidth, resultHeight);
   };
 
   return (
