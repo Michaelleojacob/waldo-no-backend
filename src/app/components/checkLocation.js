@@ -1,6 +1,9 @@
+import characterObject from "../utils/characters";
+
 const CheckLocation = (props) => {
   const { left, top } = props.clickCoords;
-  const { clientHeight, clientWidth } = props.imageDimensions;
+  const { clientWidth, clientHeight } = props.imageDimensions;
+  const { naturalWidth, naturalHeight } = props.naturalDimensions;
 
   const handleOutterModalClick = (e) => {
     if (
@@ -8,6 +11,20 @@ const CheckLocation = (props) => {
       e.target.id === "menu-modal-circle"
     ) {
       props.forceClickInactive();
+    }
+  };
+
+  const handleCheckCharOneLocation = () => {
+    const { noface } = characterObject();
+    const widthRatio = naturalWidth / clientWidth;
+    const xCoordToCheck = left * widthRatio;
+    const low = noface[0] - 50;
+    const high = noface[0] + 50;
+
+    console.log(`low:${low} high:${high} xcoord:${xCoordToCheck}`);
+
+    if (xCoordToCheck >= low && xCoordToCheck <= high) {
+      console.log(true);
     }
   };
 
@@ -30,7 +47,7 @@ const CheckLocation = (props) => {
         }}
       >
         <div id="character-selection">
-          <button>char 1</button>
+          <button onClick={handleCheckCharOneLocation}>noface</button>
           <button>char 2</button>
           <button>char 3</button>
         </div>
