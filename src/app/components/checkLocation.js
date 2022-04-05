@@ -63,7 +63,7 @@ const CheckLocation = (props) => {
         }}
       >
         <div id="character-selection">
-          <button onClick={handleCheckCharOneLocation}>noface</button>
+          <button onClick={() => handleCheckCharOneLocation(1)}>noface</button>
           <button>char 2</button>
           <button>char 3</button>
         </div>
