@@ -58,9 +58,9 @@ const gameTwoObject = () => {
   return { ...gameTwoCharacters };
 };
 
-const gameData = (gameNum) => {
+const getCorrectCharacters = (num) => {
   let obj;
-  switch (gameNum) {
+  switch (num) {
     case 1:
       obj = gameOneObject();
       break;
@@ -68,27 +68,11 @@ const gameData = (gameNum) => {
       obj = gameTwoObject();
       break;
     default:
-      console.log("error - from gameData");
+      console.log("something went horribly wrong form getCorrectCharacters");
       break;
   }
-
-  const changeFound = (charNum) => {
-    const newFoundValue = true;
-    if (obj[charNum].found === false) {
-      const newObj = { ...obj };
-      newObj[charNum].found = newFoundValue;
-      obj = newObj;
-      return { ...obj };
-    }
-  };
-
-  return {
-    getAllChars: () => ({ ...obj }),
-    getCharOne: () => ({ ...obj.one.coords }),
-    getCharTwo: () => ({ ...obj.two.coords }),
-    getCharThree: () => ({ ...obj.three.coords }),
-    changeFound,
-  };
+  console.log(obj);
+  return obj;
 };
 
-export default gameData;
+export default getCorrectCharacters;

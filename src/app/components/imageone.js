@@ -1,7 +1,7 @@
 import CheckLocation from "./checkLocation";
 import { useState } from "react";
 
-const ImageOne = () => {
+const ImageOne = (props) => {
   const [clickActive, setClickActive] = useState(false);
   const [clickCoords, setClickCoords] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
@@ -18,6 +18,7 @@ const ImageOne = () => {
     setClickActive(true);
     const { naturalWidth, naturalHeight } = e.target;
     setNaturalDimensions({ naturalWidth, naturalHeight });
+    console.log(props.gameData);
   };
 
   const forceClickInactive = () => setClickActive(false);
