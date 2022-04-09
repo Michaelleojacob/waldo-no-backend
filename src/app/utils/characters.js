@@ -71,7 +71,6 @@ const getCorrectCharacters = (num) => {
       console.log("something went horribly wrong form getCorrectCharacters");
       break;
   }
-  console.log(obj);
   return obj;
 };
 

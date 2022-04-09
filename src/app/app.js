@@ -9,7 +9,13 @@ const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
   const [pickedGame1, setPickedGame1] = useState(false);
   const [pickedGame2, setPickedGame2] = useState(false);
-  const [gameData, setGameData] = useState({});
+  const [gameData, setGameData] = useState({
+    name: "anon",
+    timeStamps: {
+      initial: null,
+      end: null,
+    },
+  });
 
   const addCharactersToGameData = (num) => {
     const charObj = getCorrectCharacters(num);
