@@ -29,6 +29,19 @@ const App = () => {
     }));
   };
 
+  const changeCharacterFound = (characterNum) => {
+    setGameData((prevState) => ({
+      ...prevState,
+      characters: {
+        ...prevState.characters,
+        [characterNum]: {
+          ...prevState.characters[characterNum],
+          found: true,
+        },
+      },
+    }));
+  };
+
   const startGameOne = () => {
     setIsGameLive(true);
     addCharactersToGameData(1);
@@ -50,7 +63,10 @@ const App = () => {
       {!isGameLive ? (
         <InitModal startGameOne={startGameOne} startGameTwo={startGameTwo} />
       ) : (
-        <GameArea gameData={gameData} />
+        <GameArea
+          gameData={gameData}
+          changeCharacterFound={changeCharacterFound}
+        />
       )}
     </div>
   );

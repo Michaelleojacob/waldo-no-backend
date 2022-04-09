@@ -3,24 +3,22 @@ import { useState } from "react";
 
 const GameArea = (props) => {
   const { gameData } = props;
+  const { changeCharacterFound } = props;
   const [clickActive, setClickActive] = useState(false);
   const [clickCoords, setClickCoords] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
   const [naturalDimensions, setNaturalDimensions] = useState({});
-  console.log(props.gameData);
 
   const handleClick = (e) => {
-    // console.log(e);
     const { clientHeight, clientWidth } = e.target;
     setImageDimensions({ clientHeight, clientWidth });
     const rect = e.target.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    setClickCoords({ left: x, top: y });
+    setClickCoords({ xClickCoord: x, yClickCoord: y });
     setClickActive(true);
     const { naturalWidth, naturalHeight } = e.target;
     setNaturalDimensions({ naturalWidth, naturalHeight });
-    console.log(props.gameData);
   };
 
   const forceClickInactive = () => setClickActive(false);
@@ -34,6 +32,7 @@ const GameArea = (props) => {
           clickCoords={clickCoords}
           forceClickInactive={forceClickInactive}
           naturalDimensions={naturalDimensions}
+          changeCharacterFound={changeCharacterFound}
         />
       ) : null}
       <img

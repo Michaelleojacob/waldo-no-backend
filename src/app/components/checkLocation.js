@@ -1,12 +1,23 @@
-import characterObject from "../utils/characters";
+//this logic+component is for the pop up that happens on click
+
+import compareXYClickWithXYCharacter from "../utils/checkXYcoords";
 
 const CheckLocation = (props) => {
+  //gamedata and characters
   const { gameData } = props;
-  const { left, top } = props.clickCoords;
+  const { characters } = gameData;
+  const characterOne = characters.one;
+  const characterTwo = characters.two;
+  const characterThree = characters.three;
+  //changefound status
+  const { changeCharacterFound } = props;
+  //dimensions and click values
+  const { xClickCoord, yClickCoord } = props.clickCoords;
   const { clientWidth, clientHeight } = props.imageDimensions;
+  //need natural for ratio calculations
   const { naturalWidth, naturalHeight } = props.naturalDimensions;
 
-  const handleOutterModalClick = (e) => {
+  const closeModal = (e) => {
     if (
       e.target.id === "menu-modal-container" ||
       e.target.id === "menu-modal-circle"
@@ -15,60 +26,47 @@ const CheckLocation = (props) => {
     }
   };
 
-  const checkWidth = (targetWidth) => {
-    const widthRatio = naturalWidth / clientWidth;
-    const xCoordToCheck = left * widthRatio;
-    const low = targetWidth - 50;
-    const high = targetWidth + 50;
-    // console.log(`low:${low} high:${high} xcoord:${xCoordToCheck}`);
-    if (xCoordToCheck >= low && xCoordToCheck <= high) {
-      return true;
-    }
-    return false;
-  };
-  const checkHeight = (targetHeight) => {
-    const heightRatio = naturalHeight / clientHeight;
-    const yCoordToCheck = top * heightRatio;
-    const low = targetHeight - 50;
-    const high = targetHeight + 50;
-    // console.log(`low:${low} high:${high} xcoord:${yCoordToCheck}`);
-    if (yCoordToCheck >= low && yCoordToCheck <= high) {
-      return true;
-    }
-    return false;
-  };
-
-  const handleCheckCharOneLocation = () => {
-    const { noface } = characterObject();
-    const resultWidth = checkWidth(noface[0]);
-    const resultHeight = checkHeight(noface[1]);
-    console.log(resultWidth, resultHeight);
+  const handleCheckXYCoords = (e) => {
+    const targetNumber = e.target.value;
+    const character = characters[targetNumber];
+    const obj = {
+      characterCoords: character.coords,
+      clickCoords: props.clickCoords,
+      naturalDimensions: props.naturalDimensions,
+      clientDimensions: props.imageDimensions,
+    };
+    const result = compareXYClickWithXYCharacter(obj);
+    console.log(result);
   };
 
   return (
     <div
-      onClick={(e) => handleOutterModalClick(e)}
       id="menu-modal-container"
+      onClick={(e) => closeModal(e)}
       style={{ width: clientWidth, height: clientHeight }}
     >
       <div
         id="menu-modal-circle"
         style={{
-          transform: `translate(calc(${left}px - 50%), calc(${top}px - 50%))`,
+          transform: `translate(calc(${xClickCoord}px - 50%), calc(${yClickCoord}px - 50%))`,
         }}
       ></div>
       <div
         id="menu-modal-selection"
         style={{
-          transform: `translate(calc(${left}px + 70%), calc(${top}px - 50%))`,
+          transform: `translate(calc(${xClickCoord}px + 50%), calc(${yClickCoord}px - 50%))`,
         }}
       >
         <div id="character-selection">
-          <button onClick={() => handleCheckCharOneLocation(1)}>
-            {gameData.characters.one.name}
+          <button value={"one"} onClick={handleCheckXYCoords}>
+            {characterOne.name}
           </button>
-          <button>{gameData.characters.two.name}</button>
-          <button>{gameData.characters.three.name}</button>
+          <button value={"two"} onClick={handleCheckXYCoords}>
+            {characterTwo.name}
+          </button>
+          <button value={"three"} onClick={handleCheckXYCoords}>
+            {characterThree.name}
+          </button>
         </div>
       </div>
     </div>
