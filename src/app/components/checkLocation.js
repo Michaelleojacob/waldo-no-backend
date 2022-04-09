@@ -1,6 +1,7 @@
 import characterObject from "../utils/characters";
 
 const CheckLocation = (props) => {
+  const { gameData } = props;
   const { left, top } = props.clickCoords;
   const { clientWidth, clientHeight } = props.imageDimensions;
   const { naturalWidth, naturalHeight } = props.naturalDimensions;
@@ -63,9 +64,11 @@ const CheckLocation = (props) => {
         }}
       >
         <div id="character-selection">
-          <button onClick={() => handleCheckCharOneLocation(1)}>noface</button>
-          <button>char 2</button>
-          <button>char 3</button>
+          <button onClick={() => handleCheckCharOneLocation(1)}>
+            {gameData.characters.one.name}
+          </button>
+          <button>{gameData.characters.two.name}</button>
+          <button>{gameData.characters.three.name}</button>
         </div>
       </div>
     </div>

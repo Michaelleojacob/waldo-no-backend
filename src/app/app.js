@@ -8,7 +8,7 @@ const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
   const [gameData, setGameData] = useState({});
 
-  const addStaticValuesToGameData = () => {
+  const addStaticValuesToGameData = (num) => {
     setGameData((prevState) => ({
       ...prevState,
       name: "anon",
@@ -16,12 +16,13 @@ const App = () => {
         initial: null,
         end: null,
       },
+      gameNum: num,
     }));
   };
 
   const addCharactersToGameData = (num) => {
     const charObj = getCorrectCharacters(num);
-    addStaticValuesToGameData();
+    addStaticValuesToGameData(num);
     setGameData((prevState) => ({
       ...prevState,
       characters: { ...charObj },

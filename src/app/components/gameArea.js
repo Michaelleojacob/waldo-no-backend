@@ -29,6 +29,7 @@ const GameArea = (props) => {
     <div id="game-image-container">
       {clickActive ? (
         <CheckLocation
+          gameData={gameData}
           imageDimensions={imageDimensions}
           clickCoords={clickCoords}
           forceClickInactive={forceClickInactive}
@@ -39,7 +40,7 @@ const GameArea = (props) => {
         onClick={handleClick}
         className="game-image"
         src={process.env.PUBLIC_URL + gameData.characters.image}
-        alt={gameData.characters.gameNum}
+        alt={gameData.gameNum}
       ></img>
     </div>
   );

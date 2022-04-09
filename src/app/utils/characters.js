@@ -73,7 +73,6 @@ const getCorrectCharacters = (num) => {
       console.log("something went horribly wrong form getCorrectCharacters");
       break;
   }
-  obj.gameNum = num;
   return obj;
 };
 
