@@ -1,0 +1,10 @@
+#dropdown-container{
+    display: inline-block;
+    position: relative;
+}
+
+#dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: white;
+  }

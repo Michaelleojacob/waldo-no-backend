@@ -3,6 +3,7 @@
 @import url('./app/styles/initModal.css');
 @import url('./app/styles/gameImage.css');
 @import url('./app/styles/checkLocation.css');
+@import url('./app/styles/navdropdown.css');
 
 html, body{
     padding: 0;
