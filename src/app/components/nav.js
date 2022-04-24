@@ -21,13 +21,14 @@ const Nav = (props) => {
       <button onClick={handleCheckData}>dataCheck</button>
       <div id="dropdown-container">
         <button id="dropbtn" onClick={handleDropdown} onBlur={forceClose}>
+          {/* <button id="dropbtn" onClick={handleDropdown}> */}
           {
             Object.values(characters).filter((char) => char.found === false)
               .length
           }
         </button>
 
-        {dropIsOpen ? <NavDropdown /> : null}
+        {dropIsOpen ? <NavDropdown characters={characters} /> : null}
       </div>
     </div>
   );

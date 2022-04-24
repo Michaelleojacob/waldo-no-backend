@@ -2,30 +2,33 @@ const gameOneObject = () => {
   const gameOneCharacters = {
     one: {
       name: "No-Face",
+      from: "Spirited Away",
       number: "one",
       coords: { x: 1170, y: 2810 },
       x: 1170,
       y: 2810,
       found: false,
-      icon: "noface-icon-placeholder",
+      image: "/assets/images/noface.jpg",
     },
     two: {
       name: "Johnny Bravo",
+      from: "Cartoon Network",
       number: "two",
       coords: { x: 850, y: 6372 },
       x: 850,
       y: 6372,
       found: false,
-      icon: "johnnybravo-icon-placeholder",
+      image: "/assets/images/johhnybravo.png",
     },
     three: {
       name: "Meg",
+      from: "Family Guy",
       number: "three",
       coords: { x: 858, y: 5534 },
       x: 858,
       y: 5534,
       found: false,
-      icon: "meg-icon-placeholder",
+      image: "/assets/images/meg.jpg",
     },
   };
   return { ...gameOneCharacters };
@@ -35,30 +38,33 @@ const gameTwoObject = () => {
   const gameTwoCharacters = {
     one: {
       name: "game2-char-one",
+      from: "g2-one",
       number: "one",
       coords: { x: 110, y: 1000 },
       x: 110,
       y: 1000,
       found: false,
-      icon: "game2-char-one-icon-placeholder",
+      image: "game2-char-one-image-placeholder",
     },
     two: {
       name: "game2-char-two",
+      from: "g2-two",
       number: "two",
       coords: { x: 500, y: 500 },
       x: 500,
       y: 500,
       found: false,
-      icon: "game2-char-two-icon-placeholder",
+      image: "game2-char-two-image-placeholder",
     },
     three: {
       name: "game2-char-three",
+      from: "g2-three",
       number: "three",
       coords: { x: 600, y: 600 },
       x: 600,
       y: 600,
       found: false,
-      icon: "game2-char-three-icon-placeholder",
+      image: "game2-char-three-image-placeholder",
     },
   };
   return { ...gameTwoCharacters };
