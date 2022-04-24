@@ -1,6 +1,5 @@
 const gameOneObject = () => {
   const gameOneCharacters = {
-    image: "/assets/images/egor-klyuchnyk-full-x-season-web.jpg",
     one: {
       name: "No-Face",
       coords: { x: 1170, y: 2810 },
@@ -31,7 +30,6 @@ const gameOneObject = () => {
 
 const gameTwoObject = () => {
   const gameTwoCharacters = {
-    image: "/assets/images/egor-klyuchnyk-small.jpg",
     one: {
       name: "game2-char-one",
       coords: { x: 110, y: 1000 },

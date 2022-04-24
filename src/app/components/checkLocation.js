@@ -4,18 +4,17 @@ import compareXYClickWithXYCharacter from "../utils/checkXYcoords";
 
 const CheckLocation = (props) => {
   //gamedata and characters
-  const { gameData } = props;
+  const { gameData, changeCharacterFound } = props;
   const { characters } = gameData;
   const characterOne = characters.one;
   const characterTwo = characters.two;
   const characterThree = characters.three;
   //changefound status
-  const { changeCharacterFound } = props;
+  // const { changeCharacterFound } = props;
   //dimensions and click values
   const { xClickCoord, yClickCoord } = props.clickCoords;
   const { clientWidth, clientHeight } = props.imageDimensions;
   //need natural for ratio calculations
-  const { naturalWidth, naturalHeight } = props.naturalDimensions;
 
   const closeModal = (e) => {
     if (
@@ -36,7 +35,10 @@ const CheckLocation = (props) => {
       clientDimensions: props.imageDimensions,
     };
     const result = compareXYClickWithXYCharacter(obj);
-    console.log(result);
+    // console.log(result, targetNumber, character);
+    if (result) {
+      changeCharacterFound(targetNumber);
+    }
   };
 
   return (

@@ -17,6 +17,7 @@ const App = () => {
         end: null,
       },
       gameNum: num,
+      image: null,
     }));
   };
 
@@ -42,14 +43,23 @@ const App = () => {
     }));
   };
 
+  const addImageToGameData = (imageLink) => {
+    setGameData((prevState) => ({
+      ...prevState,
+      image: imageLink,
+    }));
+  };
+
   const startGameOne = () => {
     setIsGameLive(true);
     addCharactersToGameData(1);
+    addImageToGameData("/assets/images/egor-klyuchnyk-full-x-season-web.jpg");
   };
 
   const startGameTwo = () => {
     setIsGameLive(true);
     addCharactersToGameData(2);
+    addImageToGameData("/assets/images/egor-klyuchnyk-small.jpg");
   };
 
   const endGame = () => {
@@ -59,14 +69,16 @@ const App = () => {
 
   return (
     <div id="app-container">
-      <Nav endGame={endGame} />
       {!isGameLive ? (
         <InitModal startGameOne={startGameOne} startGameTwo={startGameTwo} />
       ) : (
-        <GameArea
-          gameData={gameData}
-          changeCharacterFound={changeCharacterFound}
-        />
+        <div>
+          <Nav endGame={endGame} characters={gameData.characters} />
+          <GameArea
+            gameData={gameData}
+            changeCharacterFound={changeCharacterFound}
+          />
+        </div>
       )}
     </div>
   );
