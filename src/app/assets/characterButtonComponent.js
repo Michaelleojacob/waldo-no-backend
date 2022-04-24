@@ -5,6 +5,14 @@ const CharacterButton = (props) => {
       value={props.character.number}
       onClick={props.handleCheckXYCoords}
       disabled={props.character.found}
+      style={
+        props.character.found
+          ? {
+              textDecorationLine: "line-through",
+              textDecorationStyle: "solid",
+            }
+          : {}
+      }
     >
       {props.character.name}
     </button>

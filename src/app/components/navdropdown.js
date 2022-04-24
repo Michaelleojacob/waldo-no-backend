@@ -22,14 +22,12 @@ const EachCharacter = (props) => {
       >
         {char.name}
       </div>
-      {/* <div>{char.found ? "found" : "not found"}</div> */}
     </div>
   );
 };
 
 const NavDropdown = (props) => {
   const { characters } = props;
-  console.log(characters);
   return (
     <div id="dropdown-content">
       <EachCharacter char={characters.one} />
