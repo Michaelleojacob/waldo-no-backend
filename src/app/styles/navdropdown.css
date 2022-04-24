@@ -1,10 +1,12 @@
 #dropdown-container{
     display: inline-block;
     position: relative;
+    overflow: visible;
 }
 
 #dropdown-content {
     display: block;
     position: absolute;
     background-color: white;
+    right:1%;
   }

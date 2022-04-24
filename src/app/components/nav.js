@@ -8,6 +8,8 @@ const Nav = (props) => {
   // this is for testing purposes only
   const handleCheckData = () => console.log(characters);
 
+  const forceClose = () => setDropIsOpen(false);
+
   const toggleIsOpen = () => setDropIsOpen(!dropIsOpen);
 
   const handleDropdown = () => toggleIsOpen();
@@ -18,7 +20,7 @@ const Nav = (props) => {
       <div>00.00.00</div>
       <button onClick={handleCheckData}>dataCheck</button>
       <div id="dropdown-container">
-        <button id="dropbtn" onClick={handleDropdown}>
+        <button id="dropbtn" onClick={handleDropdown} onBlur={forceClose}>
           {
             Object.values(characters).filter((char) => char.found === false)
               .length
