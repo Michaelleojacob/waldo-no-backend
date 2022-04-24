@@ -73,7 +73,12 @@ const App = () => {
         <InitModal startGameOne={startGameOne} startGameTwo={startGameTwo} />
       ) : (
         <div>
-          <Nav endGame={endGame} characters={gameData.characters} />
+          <Nav
+            endGame={endGame}
+            characters={gameData.characters}
+            // remove gameData once done testing
+            gameData={gameData}
+          />
           <GameArea
             gameData={gameData}
             changeCharacterFound={changeCharacterFound}

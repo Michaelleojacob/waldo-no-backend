@@ -2,11 +2,12 @@ import NavDropdown from "./navdropdown";
 import { useState } from "react";
 
 const Nav = (props) => {
-  const { endGame, characters } = props;
+  // remove gameData once done testing
+  const { endGame, characters, gameData } = props;
   const [dropIsOpen, setDropIsOpen] = useState(false);
 
   // this is for testing purposes only
-  const handleCheckData = () => console.log(characters);
+  const handleCheckData = () => console.log(gameData);
 
   const forceClose = () => setDropIsOpen(false);
 
