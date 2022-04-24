@@ -2,6 +2,7 @@ const gameOneObject = () => {
   const gameOneCharacters = {
     one: {
       name: "No-Face",
+      number: "one",
       coords: { x: 1170, y: 2810 },
       x: 1170,
       y: 2810,
@@ -10,6 +11,7 @@ const gameOneObject = () => {
     },
     two: {
       name: "Johnny Bravo",
+      number: "two",
       coords: { x: 850, y: 6372 },
       x: 850,
       y: 6372,
@@ -18,6 +20,7 @@ const gameOneObject = () => {
     },
     three: {
       name: "Meg",
+      number: "three",
       coords: { x: 858, y: 5534 },
       x: 858,
       y: 5534,
@@ -32,6 +35,7 @@ const gameTwoObject = () => {
   const gameTwoCharacters = {
     one: {
       name: "game2-char-one",
+      number: "one",
       coords: { x: 110, y: 1000 },
       x: 110,
       y: 1000,
@@ -40,6 +44,7 @@ const gameTwoObject = () => {
     },
     two: {
       name: "game2-char-two",
+      number: "two",
       coords: { x: 500, y: 500 },
       x: 500,
       y: 500,
@@ -48,6 +53,7 @@ const gameTwoObject = () => {
     },
     three: {
       name: "game2-char-three",
+      number: "three",
       coords: { x: 600, y: 600 },
       x: 600,
       y: 600,

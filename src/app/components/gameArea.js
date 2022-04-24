@@ -21,7 +21,11 @@ const GameArea = (props) => {
     setNaturalDimensions({ naturalWidth, naturalHeight });
   };
 
-  const forceClickInactive = () => setClickActive(false);
+  // const forceClickInactive = () => setClickActive(false);
+  const forceClickInactive = () =>
+    setTimeout(() => {
+      setClickActive(false);
+    }, 250);
 
   return (
     <div id="game-image-container">

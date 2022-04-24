@@ -1,14 +1,13 @@
 //this logic+component is for the pop up that happens on click
 
 import compareXYClickWithXYCharacter from "../utils/checkXYcoords";
+import CharacterButton from "../assets/characterButtonComponent";
 
 const CheckLocation = (props) => {
   //gamedata and characters
   const { gameData, changeCharacterFound } = props;
   const { characters } = gameData;
-  const characterOne = characters.one;
-  const characterTwo = characters.two;
-  const characterThree = characters.three;
+
   //changefound status
   // const { changeCharacterFound } = props;
   //dimensions and click values
@@ -39,6 +38,7 @@ const CheckLocation = (props) => {
     if (result) {
       changeCharacterFound(targetNumber);
     }
+    props.forceClickInactive();
   };
 
   return (
@@ -60,15 +60,18 @@ const CheckLocation = (props) => {
         }}
       >
         <div id="character-selection">
-          <button value={"one"} onClick={handleCheckXYCoords}>
-            {characterOne.name}
-          </button>
-          <button value={"two"} onClick={handleCheckXYCoords}>
-            {characterTwo.name}
-          </button>
-          <button value={"three"} onClick={handleCheckXYCoords}>
-            {characterThree.name}
-          </button>
+          <CharacterButton
+            character={characters.one}
+            handleCheckXYCoords={handleCheckXYCoords}
+          />
+          <CharacterButton
+            character={characters.two}
+            handleCheckXYCoords={handleCheckXYCoords}
+          />
+          <CharacterButton
+            character={characters.three}
+            handleCheckXYCoords={handleCheckXYCoords}
+          />
         </div>
       </div>
     </div>
