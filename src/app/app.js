@@ -8,6 +8,17 @@ const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
   const [gameData, setGameData] = useState({});
 
+  // useEffect(() => {
+  //   let hour = Math.floor(gameData.timer / 3600);
+  //   let minute = Math.floor((gameData.timer - hour * 3600) / 60);
+  //   let seconds = gameData.timer - (hour * 3600 + minute * 60);
+  //   if (hour < 10) hour = "0" + hour;
+  //   if (minute < 10) minute = "0" + minute;
+  //   if (seconds < 10) seconds = "0" + seconds;
+  //   sethhmmss(`${hour}:${minute}:${seconds}`);
+  //   console.log(startTimer);
+  // }, [gameData.timer]);
+
   const addStaticValuesToGameData = (num) => {
     setGameData((prevState) => ({
       ...prevState,
@@ -18,8 +29,27 @@ const App = () => {
       },
       gameNum: num,
       image: null,
+      hhmmss: null,
+      gameActive: false,
     }));
   };
+
+  // const incrementTimer = () =>
+  //   setGameData((prevState) => ({
+  //     ...prevState,
+  //     timer: prevState.timer + 1,
+  //   }));
+
+  // const startTimer = () => setInterval(incrementTimer, 1000);
+
+  // const clearTimer = () => {
+  //   clearInterval(startTimer);
+  //   clearInterval(incrementTimer);
+  //   clearTimeout(startTimer);
+  //   clearTimeout(incrementTimer);
+
+  //   sethhmmss(null);
+  // };
 
   const addCharactersToGameData = (num) => {
     const charObj = getCorrectCharacters(num);
@@ -65,7 +95,32 @@ const App = () => {
   const endGame = () => {
     setIsGameLive(false);
     setGameData({});
+    forceGameInactive();
   };
+
+  const forceGameActive = () =>
+    setGameData((prevState) => ({
+      ...prevState,
+      gameActive: true,
+    }));
+
+  const forceGameInactive = () =>
+    setGameData((prevState) => ({
+      ...prevState,
+      gameActive: false,
+    }));
+
+  const incrementhhmmss = () =>
+    setGameData((prevState) => ({
+      ...prevState,
+      hhmmss: prevState.hhmmss + 1,
+    }));
+
+  const sethhmmss = (newTime) =>
+    setGameData((prevState) => ({
+      ...prevState,
+      hhmmss: newTime,
+    }));
 
   return (
     <div id="app-container">
@@ -76,12 +131,18 @@ const App = () => {
           <Nav
             endGame={endGame}
             characters={gameData.characters}
+            time={gameData.hhmmss}
+            incrementhhmmss={incrementhhmmss}
+            gameActive={gameData.gameActive}
+            sethhmmss={sethhmmss}
+            timer={gameData.hhmmss}
             // remove gameData once done testing
             gameData={gameData}
           />
           <GameArea
             gameData={gameData}
             changeCharacterFound={changeCharacterFound}
+            forceGameActive={forceGameActive}
           />
         </div>
       )}

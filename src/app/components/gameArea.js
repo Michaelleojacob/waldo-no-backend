@@ -2,8 +2,7 @@ import CheckLocation from "./checkLocation";
 import { useState } from "react";
 
 const GameArea = (props) => {
-  const { gameData } = props;
-  const { changeCharacterFound } = props;
+  const { gameData, changeCharacterFound, forceGameActive } = props;
   const [clickActive, setClickActive] = useState(false);
   const [clickCoords, setClickCoords] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
@@ -44,6 +43,7 @@ const GameArea = (props) => {
         className="game-image"
         src={process.env.PUBLIC_URL + gameData.image}
         alt={gameData.gameNum}
+        onLoad={forceGameActive}
       ></img>
     </div>
   );
