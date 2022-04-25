@@ -16,9 +16,7 @@ const Time = (props) => {
 
   return (
     <div>
-      <div>
-        {computedHour}:{computedMinute}:{computedSecond}
-      </div>
+      {computedHour}:{computedMinute}:{computedSecond}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const App = () => {
       ...prevState,
       name: "anon",
       timeStamps: {
-        initial: null,
+        start: null,
         end: null,
       },
       gameNum: num,
@@ -68,13 +68,35 @@ const App = () => {
     setGameData({});
   };
 
-  const startGame = () => setIsGameLive(true);
+  const startGame = () => {
+    setIsGameLive(true);
+    setStartTimestamp();
+  };
 
   const incrementTime = () =>
     setGameData((prevState) => ({
       ...prevState,
       time: prevState.time + 1,
     }));
+
+  const setStartTimestamp = () =>
+    setGameData((prevState) => ({
+      ...prevState,
+      timeStamps: {
+        ...prevState.timeStamps,
+        start: Date.now(),
+      },
+    }));
+
+  // wont use this until I begin working on the win-end logic
+  // const setEndTimestamp = () =>
+  //   setGameData((prevState) => ({
+  //     ...prevState,
+  //     timeStamps: {
+  //       ...prevState.timeStamps,
+  //       end: Date.now(),
+  //     },
+  //   }));
 
   useEffect(() => {
     let intervalId;
