@@ -2,7 +2,7 @@ import CheckLocation from "./checkLocation";
 import { useState } from "react";
 
 const GameArea = (props) => {
-  const { gameData, changeCharacterFound, forceGameActive } = props;
+  const { gameData, changeCharacterFound, startGame } = props;
   const [clickActive, setClickActive] = useState(false);
   const [clickCoords, setClickCoords] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
@@ -43,15 +43,10 @@ const GameArea = (props) => {
         className="game-image"
         src={process.env.PUBLIC_URL + gameData.image}
         alt={gameData.gameNum}
-        onLoad={forceGameActive}
+        onLoad={startGame}
       ></img>
     </div>
   );
 };
 
 export default GameArea;
-
-// import { useState } from "react";
-// const [imageLoaded, setImageLoaded] = useState(false);
-// onLoad={() => setImageLoaded(true)}
-// once the image is loaded send the timestamp to the backend.
