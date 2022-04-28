@@ -34,7 +34,6 @@ const CheckLocation = (props) => {
       clientDimensions: props.imageDimensions,
     };
     const result = compareXYClickWithXYCharacter(obj);
-    // console.log(result, targetNumber, character);
     if (result) {
       changeCharacterFound(targetNumber);
     }

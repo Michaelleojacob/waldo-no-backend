@@ -22,10 +22,13 @@ const Time = (props) => {
 };
 
 const Nav = (props) => {
-  const { resetGame, characters, gameData, time } = props;
+  const { resetGame, characters, gameData, time, checkForWin } = props;
   const [dropIsOpen, setDropIsOpen] = useState(false);
 
-  const handleCheckData = () => console.log(gameData);
+  const handleCheckData = () => {
+    console.log(gameData);
+    checkForWin();
+  };
 
   const forceClose = () => setDropIsOpen(false);
 

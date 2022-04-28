@@ -3,10 +3,12 @@ import InitModal from "./components/initModal";
 import getCorrectCharacters from "./utils/characters";
 import { useEffect, useState } from "react";
 import GameArea from "./components/gameArea";
+import WinScreen from "./components/winscreen";
 
 const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
   const [gameData, setGameData] = useState({});
+  const [win, setWin] = useState(false);
 
   const addStaticValuesToGameData = (num) => {
     setGameData((prevState) => ({
@@ -65,11 +67,13 @@ const App = () => {
 
   const resetGame = () => {
     setIsGameLive(false);
+    setWin(false);
     setGameData({});
   };
 
   const startGame = () => {
     setIsGameLive(true);
+    setWin(false);
     setStartTimestamp();
   };
 
@@ -88,15 +92,21 @@ const App = () => {
       },
     }));
 
-  // wont use this until I begin working on the win-end logic
-  // const setEndTimestamp = () =>
-  //   setGameData((prevState) => ({
-  //     ...prevState,
-  //     timeStamps: {
-  //       ...prevState.timeStamps,
-  //       end: Date.now(),
-  //     },
-  //   }));
+  const checkForWin = () => {
+    const checkCharacters = Object.values(gameData.characters).every(
+      (char) => char.found
+    );
+    return checkCharacters;
+  };
+
+  const setEndTimestamp = () =>
+    setGameData((prevState) => ({
+      ...prevState,
+      timeStamps: {
+        ...prevState.timeStamps,
+        end: Date.now(),
+      },
+    }));
 
   useEffect(() => {
     let intervalId;
@@ -106,25 +116,42 @@ const App = () => {
     return () => clearInterval(intervalId);
   }, [isGameLive]);
 
+  useEffect(() => {
+    if (gameData.hasOwnProperty("characters")) {
+      if (Object.values(gameData.characters).every((char) => char.found)) {
+        setEndTimestamp();
+        setIsGameLive(false);
+        setWin(true);
+      }
+    }
+    // eslint-disable-next-line
+  }, [gameData.characters]);
+
   return (
     <div id="app-container">
-      {!isGameLive ? (
+      {!isGameLive && !win ? (
         <InitModal startGameOne={startGameOne} startGameTwo={startGameTwo} />
-      ) : (
+      ) : null}
+      {isGameLive && !win ? (
         <div>
           <Nav
             resetGame={resetGame}
             characters={gameData.characters}
             time={gameData.time}
             gameData={gameData}
+            checkForWin={checkForWin}
           />
           <GameArea
             gameData={gameData}
             changeCharacterFound={changeCharacterFound}
             startGame={startGame}
+            checkForWin={checkForWin}
           />
         </div>
-      )}
+      ) : null}
+      {!isGameLive && win ? (
+        <WinScreen gameData={gameData} resetGame={resetGame} />
+      ) : null}
     </div>
   );
 };
