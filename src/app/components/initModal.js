@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Preview from "../utils/preview";
 const InitModal = (props) => {
   const { startGameOne, startGameTwo } = props;
   const [selected, setSelected] = useState(1);
@@ -20,13 +21,12 @@ const InitModal = (props) => {
   return (
     <div id="init-modal-container">
       <div id="modal-content">
-        <div>modal content</div>
-        <div>
+        <div id="modal-title">Find Us</div>
+        <div id="select-game-btns">
           <button onClick={() => setSelected(1)}>one</button>
           <button onClick={() => setSelected(2)}>two</button>
         </div>
-        <div>preview {selected}</div>
-        <button onClick={handleStart}>start</button>
+        <Preview selected={selected} start={handleStart} />
       </div>
     </div>
   );

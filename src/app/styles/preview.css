@@ -1,0 +1,31 @@
+#prev-wrapper{
+}
+
+#preview-content{
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+#preview-img-container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#preview-img{
+  min-width: 10vh;
+  max-width: 10vh;
+  min-height: 10vh;
+  max-height: 10vh;
+}
+
+#preview-chars{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  max-width: 10vh;
+}
