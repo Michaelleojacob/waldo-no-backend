@@ -1,5 +1,18 @@
 import getCorrectCharacters from "../utils/characters";
 
+const EachChar = ({ char }) => {
+  return (
+    <div id="preview-chars">
+      <div>{char.name}</div>
+      <img
+        className="preview-char-icon"
+        src={process.env.PUBLIC_URL + char.image}
+        alt={char.name + " image"}
+      ></img>
+    </div>
+  );
+};
+
 const PreviewContent = ({ chars, img, start }) => {
   return (
     <div id="preview-content">
@@ -10,8 +23,10 @@ const PreviewContent = ({ chars, img, start }) => {
           alt="img1"
         ></img>
       </div>
-      <div id="preview-chars">
-        <div>{chars.one.name}</div>
+      <div id="chars-and-start-container">
+        <EachChar char={chars.one} />
+        <EachChar char={chars.two} />
+        <EachChar char={chars.three} />
         <button onClick={start}>start</button>
       </div>
     </div>

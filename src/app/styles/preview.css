@@ -29,9 +29,18 @@
   max-width: 10rem;
 }
 
+#chars-and-start-container {
+  display: flex;
+  flex-direction: column;
+}
+
 #preview-chars {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem;
+}
+
+.preview-char-icon {
+  max-height: 4rem;
+  max-width: 4rem;
+  border-radius: 8px;
 }
