@@ -1,31 +1,35 @@
-#prev-wrapper{
+#prev-wrapper {
+  overflow: hidden;
 }
 
-#preview-content{
+#preview-content {
   display: flex;
-  padding: 1rem;
+  margin-top: 1rem;
   gap: 1rem;
   justify-content: space-around;
+  border: 1px solid black;
+  height: 70vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-#preview-img-container{
+#preview-img-container {
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
+  height: inherit;
+  width: 50vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-#preview-img{
-  min-width: 10vh;
-  max-width: 10vh;
-  min-height: 10vh;
-  max-height: 10vh;
+#preview-img {
 }
 
-#preview-chars{
+#preview-chars {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
-  max-width: 10vh;
 }
