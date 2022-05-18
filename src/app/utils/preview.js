@@ -21,8 +21,8 @@ const PreviewContent = ({ chars, img, start }) => {
 const Preview = ({ selected, start }) => {
   const gameOneCharacters = getCorrectCharacters(1);
   const gameTwoCharacters = getCorrectCharacters(2);
-  const img1 = "/assets/images/ad222prev.jpg";
-  const img2 = "/assets/images/universe113prev.jpg";
+  const img1 = "/assets/images/egor-klyuchnyk-full-x-season-web.jpg";
+  const img2 = "/assets/images/egor-klyuchnyk-small.jpg";
 
   return (
     <div id="prev-wrapper">
