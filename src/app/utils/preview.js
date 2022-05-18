@@ -3,7 +3,8 @@ import getCorrectCharacters from "../utils/characters";
 const EachChar = ({ char }) => {
   return (
     <div id="preview-chars">
-      <div>{char.name}</div>
+      <div className="char-name">{char.name}</div>
+      <div className="char-from">{char.from}</div>
       <img
         className="preview-char-icon"
         src={process.env.PUBLIC_URL + char.image}

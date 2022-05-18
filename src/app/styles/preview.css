@@ -39,7 +39,6 @@
   align-items: center;
   justify-content: space-around;
   align-content: center;
-  font-size: 1.5rem;
   padding-right: 2rem;
 }
 
@@ -55,4 +54,9 @@
   max-height: 6rem;
   max-width: 6rem;
   border-radius: 8px;
+}
+
+.char-name {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
