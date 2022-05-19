@@ -23,8 +23,12 @@ const InitModal = (props) => {
       <div id="modal-content">
         <div id="modal-title">Find Us</div>
         <div id="select-game-btns">
-          <button onClick={() => setSelected(1)}>one</button>
-          <button onClick={() => setSelected(2)}>two</button>
+          <button className="select-map-btn" onClick={() => setSelected(1)}>
+            one
+          </button>
+          <button className="select-map-btn" onClick={() => setSelected(2)}>
+            two
+          </button>
         </div>
         <Preview selected={selected} start={handleStart} />
       </div>
