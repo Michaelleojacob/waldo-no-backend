@@ -105,11 +105,17 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
+  border: 1px solid transparent;
+}
+.select-map-btn:hover {
+  opacity: 75%;
+}
+.select-map-btn:active {
+  border: 1px solid white;
 }
 
 #start-game-btn {
   width: 50%;
-  /* background: linear-gradient(to bottom right, #ef4765, #ff9a5a); */
   background: linear-gradient(93deg, #2a2c80, #fd1d1d 50%, #fcb045);
   transition: transform 0.3s ease;
   border: 0;
@@ -131,6 +137,13 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
+}
+
+#start-game-btn:hover {
+  opacity: 75%;
+}
+#start-game-btn:active {
+  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
 }
 
 #start-btn-container {
