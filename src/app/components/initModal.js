@@ -31,13 +31,14 @@ const InitModal = (props) => {
         </div>
         <div id="select-game-btns">
           <button className="select-map-btn" onClick={() => setSelected(1)}>
-            map 1
+            A.D 2.222
           </button>
           <button className="select-map-btn" onClick={() => setSelected(2)}>
-            map 2
+            Universe 113
           </button>
         </div>
         <Preview selected={selected} start={handleStart} />
+        <div id="artist-name">artwork by Egor Klycuhnyk</div>
       </div>
     </div>
   );

@@ -102,6 +102,7 @@
   min-width: fit-content;
   word-break: break-word;
   border: 1px solid transparent;
+  min-width: 10rem;
 }
 .select-map-btn:hover {
   opacity: 75%;
