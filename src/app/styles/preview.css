@@ -7,8 +7,7 @@
   margin-top: 1rem;
   justify-content: flex-start;
   overflow: hidden;
-  max-width: 80vw;
-  width: 80vw;
+
   background-color: #fff;
   border-radius: 2rem;
   gap: 0.5rem;
@@ -72,13 +71,13 @@
 
 #select-game-btns {
   padding: 0.5rem;
-  width: 10rem;
   display: flex;
   justify-content: space-evenly;
   font-size: 1.5rem;
+  gap: 1rem;
 }
 .select-map-btn {
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 4px;
 }
 
@@ -93,7 +92,6 @@
     NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans", sans-serif;
-  font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -102,9 +100,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: fit-content;
+  min-width: fit-content;
   word-break: break-word;
-  border: 0;
   border: 1px solid transparent;
 }
 .select-map-btn:hover {
@@ -152,4 +149,15 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+#instructions {
+  color: white;
+  font-family: "Nova Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 0.5rem;
 }
