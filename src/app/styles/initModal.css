@@ -33,7 +33,8 @@
   align-items: center;
   justify-content: center;
   align-content: center;
-  height: 4rem;
+  height: 2rem;
+  margin-top: 2rem;
 }
 
 #find {
