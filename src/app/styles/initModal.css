@@ -28,6 +28,18 @@
 
 #modal-title {
   font-size: 2rem;
-  color: red;
   padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 4rem;
+}
+
+#find {
+  color: white;
+}
+
+#us {
+  color: red;
 }

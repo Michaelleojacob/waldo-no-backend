@@ -21,7 +21,10 @@ const InitModal = (props) => {
   return (
     <div id="init-modal-container">
       <div id="modal-content">
-        <div id="modal-title">Find Us</div>
+        <div id="modal-title">
+          <p id="find">Find</p>
+          <p id="us">Us</p>
+        </div>
         <div id="instructions">
           <div>- select map</div>
           <div>- press start</div>

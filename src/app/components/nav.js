@@ -22,13 +22,8 @@ const Time = (props) => {
 };
 
 const Nav = (props) => {
-  const { resetGame, characters, gameData, time, checkForWin } = props;
+  const { characters, time } = props;
   const [dropIsOpen, setDropIsOpen] = useState(false);
-
-  const handleCheckData = () => {
-    console.log(gameData);
-    checkForWin();
-  };
 
   const forceClose = () => setDropIsOpen(false);
 
@@ -38,11 +33,11 @@ const Nav = (props) => {
 
   return (
     <div id="nav-container">
-      <button onClick={resetGame}>end game</button>
-      <div>
-        <Time time={time} />
+      <div id="nav-title">
+        <p id="nav-find">Find</p>
+        <p id="nav-us">Us</p>
       </div>
-      <button onClick={handleCheckData}>dataCheck</button>
+      <Time time={time} />
       <div id="dropdown-container">
         <button id="dropbtn" onClick={handleDropdown} onBlur={forceClose}>
           {
