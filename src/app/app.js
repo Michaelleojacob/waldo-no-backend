@@ -150,7 +150,7 @@ const App = () => {
         </div>
       ) : null}
       {!isGameLive && win ? (
-        <WinScreen gameData={gameData} resetGame={resetGame} />
+        <WinScreen timeStamps={gameData.timeStamps} resetGame={resetGame} />
       ) : null}
     </div>
   );
