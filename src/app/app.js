@@ -1,9 +1,9 @@
-import Nav from "./components/nav";
-import InitModal from "./components/initModal";
-import getCorrectCharacters from "./utils/characters";
-import { useEffect, useState } from "react";
-import GameArea from "./components/gameArea";
-import WinScreen from "./components/winscreen";
+import Nav from './components/nav';
+import InitModal from './components/initModal';
+import getCorrectCharacters from './utils/characters';
+import { useEffect, useState } from 'react';
+import GameArea from './components/gameArea';
+import WinScreen from './components/winscreen';
 
 const App = () => {
   const [isGameLive, setIsGameLive] = useState(false);
@@ -13,7 +13,7 @@ const App = () => {
   const addStaticValuesToGameData = (num) => {
     setGameData((prevState) => ({
       ...prevState,
-      name: "anon",
+      name: 'anon',
       timeStamps: {
         start: null,
         end: null,
@@ -56,13 +56,13 @@ const App = () => {
   const startGameOne = () => {
     setIsGameLive(true);
     addCharactersToGameData(1);
-    addImageToGameData("/assets/images/egor-klyuchnyk-full-x-season-web.jpg");
+    addImageToGameData('/assets/images/egor-klyuchnyk-full-x-season-web.jpg');
   };
 
   const startGameTwo = () => {
     setIsGameLive(true);
     addCharactersToGameData(2);
-    addImageToGameData("/assets/images/egor-klyuchnyk-small.jpg");
+    addImageToGameData('/assets/images/egor-klyuchnyk-small.jpg');
   };
 
   const resetGame = () => {
@@ -117,7 +117,7 @@ const App = () => {
   }, [isGameLive]);
 
   useEffect(() => {
-    if (gameData.hasOwnProperty("characters")) {
+    if (gameData.hasOwnProperty('characters')) {
       if (Object.values(gameData.characters).every((char) => char.found)) {
         setEndTimestamp();
         setIsGameLive(false);
@@ -128,7 +128,7 @@ const App = () => {
   }, [gameData.characters]);
 
   return (
-    <div id="app-container">
+    <div id='app-container'>
       {!isGameLive && !win ? (
         <InitModal startGameOne={startGameOne} startGameTwo={startGameTwo} />
       ) : null}
